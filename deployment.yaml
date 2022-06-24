@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sanusuri-coursework-assessment
+spec:
+  selector:
+    matchLabels:
+      app: sanusuri-coursework-assessment
+  template:
+    metadata:
+      labels:
+        app: sanusuri-coursework-assessment
+    spec:
+      containers:
+      - name: sanusuri-coursework-assessment
+        image: sbacr02.azurecr.io/sanusuri-coursework-assessment:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
